@@ -1,5 +1,5 @@
 import java.util.*;
-
+//3SUM-Question 15
 public class Sum3_15 {
     public static List<List<Integer>> threeSum(int[] nums) {
 ////         O(n^3logn)
@@ -25,18 +25,36 @@ public class Sum3_15 {
 //         return list1;
 
         // O(n^2)
-        Set<List<Integer>> set=new HashSet<>();
         List<List<Integer>> list=new ArrayList<>();
-
-        if(nums.length<3)
-            return new ArrayList<>();
-        int p1=0,p3=2;
+        Arrays.sort(nums);
+        for(int i=0;i<nums.length-2;i++){
+            if(i==0||(i>0 && nums[i]!=nums[i-1])){//skipping the repeated element
+                //getting last repeated
+                //checking the previous element
+                int sum = 0 - nums[i];
+                int start = i + 1;
+                int end = nums.length - 1;
+                while (start < end) {
+                    if ((nums[start] + nums[end]) > sum)
+                        end--;
+                    else if ((nums[start] + nums[end]) < sum)
+                        start++;
+                    else {
+                        list.add(Arrays.asList(nums[i], nums[start], nums[end]));
+                        while (start < end && nums[start] == nums[start + 1]) start++;
+                        while (start < end && nums[end] == nums[end - 1]) end--;
+                        start++;
+                        end--;
+                    }
+                }
+            }
+        }
 
 
         return list;
     }
     public static void main(String[] args) {
         int[] arr={-1,0,1,2,-1,-4};
-        threeSum(arr);
+        System.out.println(threeSum(arr));
     }
 }
