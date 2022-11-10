@@ -24,7 +24,13 @@ public class Sum3_15 {
 //             list1.add(row);
 //         return list1;
 
-        // O(n^2)
+        // O(n)->Two Pointer Approach
+        /**
+         * keep low pointer at extreme left and high pointer at extreme right,
+         * extreme left will be the next index of correct index
+         * ->If (low pointer + high pointer) >sum we need to decrease the high pointer
+         * ->If (low pointer + high pointer) < sum we need to increase the low pointer
+         * **/
         List<List<Integer>> list=new ArrayList<>();
         Arrays.sort(nums);
         for(int i=0;i<nums.length-2;i++){
