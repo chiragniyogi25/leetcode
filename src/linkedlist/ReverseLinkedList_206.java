@@ -1,3 +1,5 @@
+package linkedlist;
+
 /**Reverse a Linked List*/
 public class ReverseLinkedList_206 {
     private static class ListNode{

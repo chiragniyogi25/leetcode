@@ -1,3 +1,5 @@
+package linkedlist;
+
 import java.util.*;
 //3SUM-Question 15
 public class Sum3_15 {
