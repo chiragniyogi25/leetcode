@@ -1,9 +1,6 @@
 package linkedlist;
 
-import java.util.HashSet;
-
-/**Remove Duplicates from unsorted Linked List**/
-public class RemoveDuplicatesUnsortedLinkedList {
+public class RemoveDuplicatesSortedLinkedList {
     private static class ListNode{
         int val;
         ListNode next;
@@ -13,41 +10,36 @@ public class RemoveDuplicatesUnsortedLinkedList {
             this.next=next;
         }
     }
-    public static ListNode removeDuplicates(ListNode head){
-        if(head==null)
-            return null;
+    /**Brute Force Approach*/
+    public static ListNode removeDuplicatesFromSortedLL(ListNode head){
         ListNode curr=head;
-        ListNode prev=null;
-        HashSet<Integer> set=new HashSet<>();
         while(curr!=null){
-            if(prev!=null && set.contains(curr.val)){
-                prev.next=curr.next;
+            ListNode temp=curr.next;
+            while(temp!=null && temp.val==curr.val){
+                temp=temp.next;
             }
-            if(prev==null||(prev!=null && !set.contains(curr.val))) {
-                set.add(curr.val);
-                prev=curr;
-            }
+            curr.next=temp;
             curr=curr.next;
-
         }
         return head;
     }
     public static void main(String[] args) {
-//        int[] arr={9,8,4,30,20,14,12,8,9};
-        int[] arr={88,8,8,8,8};
+        int[] arr={1,1,1,2,3,3,4,4,4,5};
         ListNode node =new ListNode(arr[0],null);
         ListNode temp=node;
         for(int i=1;i<arr.length;i++){
             temp.next=new ListNode(arr[i],null);
             temp=temp.next;
         }
-        node=removeDuplicates(node);
+        node=removeDuplicatesFromSortedLL(node);
+        //        /**For Printing The Linked List*/
         while(node!=null){
             if(node.next==null)
-                System.out.print(node.val);
+                System.out.println(node.val);
             else
                 System.out.print(node.val+"->");
             node=node.next;
         }
+
     }
 }
