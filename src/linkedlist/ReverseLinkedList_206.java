@@ -28,7 +28,7 @@ public class ReverseLinkedList_206 {
         return newHead;
     }
     //Iterative
-    public static ListNode reverseListWithoutRecursion(ListNode head){
+    private static ListNode reverseListWithoutRecursion(ListNode head){
         ListNode curr=head;//intially current will point to fisrt index
         ListNode prev=null;//initially prev will be null
         while(curr!=null){

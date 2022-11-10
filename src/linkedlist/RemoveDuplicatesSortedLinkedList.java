@@ -12,19 +12,29 @@ public class RemoveDuplicatesSortedLinkedList {
     }
     /**Brute Force Approach*/
     public static ListNode removeDuplicatesFromSortedLL(ListNode head){
+//        ListNode curr=head;
+//        while(curr!=null){
+//            ListNode temp=curr.next;
+//            while(temp!=null && temp.val==curr.val){
+//                temp=temp.next;
+//            }
+//            curr.next=temp;
+//            curr=curr.next;
+//        }
+//        return head;
         ListNode curr=head;
-        while(curr!=null){
-            ListNode temp=curr.next;
-            while(temp!=null && temp.val==curr.val){
-                temp=temp.next;
+        if(curr==null)return null;
+        while(curr.next!=null){
+            if(curr.val==curr.next.val){
+                curr.next=curr.next.next;
             }
-            curr.next=temp;
             curr=curr.next;
         }
         return head;
     }
     public static void main(String[] args) {
-        int[] arr={1,1,1,2,3,3,4,4,4,5};
+//        int[] arr={1,1,1,2,3,3,4,4,4,5};
+        int[] arr={2,2,2,2};
         ListNode node =new ListNode(arr[0],null);
         ListNode temp=node;
         for(int i=1;i<arr.length;i++){
