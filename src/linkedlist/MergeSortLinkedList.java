@@ -30,6 +30,7 @@ public class MergeSortLinkedList {
     }
     //performing merging
     public static ListNode mergeTwoSortedList(ListNode first,ListNode second){
+        if(first==null || second==null)return first!=null?first:second;
         ListNode result=new ListNode(0,null);
         ListNode temp=result;
         while(first!=null && second!=null){
