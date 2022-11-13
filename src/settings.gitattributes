@@ -1,2 +1,15 @@
-src/* linguist-documentation=false
-src/* linguist-vendored
+src/BinaryTree linguist-documentation=false
+src/BinaryTree linguist-vendored
+
+src/Graph linguist-documentation=false
+src/Graph linguist-vendored
+
+src/linkedlist linguist-documentation=false
+src/lisnkedlist linguist-vendored
+
+src/palindromequestions linguist-documentation=false
+src/palindromequestions linguist-vendored
+
+src/stack linguist-documentation=false
+src/stack linguist-vendored
+
