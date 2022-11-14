@@ -1,5 +1,9 @@
 package stringQuestions;
-
+/**
+ * Question- Reverse Words in a String
+ * Input: s = "the sky is blue"
+ * Output: "blue is sky the"
+ * */
 public class ReverseWordsInAString_151 {
     public static String reverseWords(String str) {
         /**using O(n) space*/
